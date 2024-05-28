@@ -2,6 +2,7 @@
 #include "stdio.h"
 #include "raylib.h"
 #include "utils.h"
+#include "grid.h"
 
 using namespace std;
 
@@ -30,30 +31,23 @@ void DrawTitleText() {
     DrawText(titleText, textPosX, textPosY, titleFontSize, titleFontColor);
 }
 
-void DrawGameArea() {
-    Rectangle gameAreaRect;
-    gameAreaRect.x = calculateCenterPos(gameGridWidth * gridSize, screenWidth);
-    gameAreaRect.y = calculateCenterPos(gameGridHeight * gridSize, screenHeight);
-    gameAreaRect.width = gameGridWidth * gridSize;
-    gameAreaRect.height = gameGridHeight * gridSize;
-
-    DrawRectangleLinesEx(gameAreaRect, gameAreaBorderLineThickness, gameAreaBorderColor);
-}
-
 int main() {
-
 
     // Game score
     unsigned int score = 0;
 	
     InitWindow(screenWidth, screenHeight, "Tetris");
+    SetTargetFPS(60);
+
+    Grid grid = Grid(gameGridWidth, gameGridHeight, gridSize, calculateCenterPos(gameGridWidth * gridSize, screenWidth), calculateCenterPos(gameGridHeight * gridSize, screenHeight));
+    grid.Print();
 
     while (!WindowShouldClose()) {
         BeginDrawing();
 
         ClearBackground(bgColor);
 
-        DrawGameArea();
+        grid.Draw();
 
         DrawTitleText();
 
