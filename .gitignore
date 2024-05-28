@@ -1,0 +1,93 @@
+# Visual Studio
+.vscode/
+*.code-workspace
+.vs/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files (Mono Auto Generated)
+mono_crash.*
+
+# Mono Auto Generated Files
+mono_crash.*
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+
+# MSTest test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+![Bb]uild[Ll]og.*
+
+# NUNIT
+*.VisualState.xml
+TestResult.xml
+nunit-*.xml
+
+# Build Results of an ATL Project
+[Dd]ebugPS/
+[Rr]eleasePS/
+dlldata.c
+
+# DNX
+.project.lock.json
+artifacts/
+
+# Microsoft Fakes
+[Ff]akesAssemblies/
+
+# Node.js Tools for Visual Studio
+.ntvs_analysis.dat
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# TypeScript
+*.tsbuildinfo
+
+# JavaScript
+*.log
+
+# Visual Studio 6 build log
+*.plg
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# VS Code directories
+.vscode/
+
+# SQL Server files
+*.mdf
+*.ldf
+*.ndf
+
+# Azure DevOps
+.vsts-ci.yml
