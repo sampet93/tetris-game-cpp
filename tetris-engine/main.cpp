@@ -6,6 +6,18 @@
 
 using namespace std;
 
+double lastUpdateTime = 0;
+
+bool EventTriggered(double interval) {
+    double currentTime = GetTime();
+    if (currentTime - lastUpdateTime >= interval) {
+        lastUpdateTime = currentTime;
+        return true;
+    }
+
+    return false;
+}
+
 const char* titleText = "Tetris";
 const int titleFontSize = 48;
 const Color titleFontColor = LIGHTGRAY;
@@ -37,6 +49,10 @@ int main() {
     while (!WindowShouldClose()) {
 
         game.HandleInput();
+
+        if (EventTriggered(0.4)) {
+            game.MoveBlockDown();
+        }
 
         BeginDrawing();
         ClearBackground(bgColor);

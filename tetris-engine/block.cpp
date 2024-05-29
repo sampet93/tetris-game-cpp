@@ -17,7 +17,6 @@ void Block::Draw() {
 
 	for (Position item : tiles) {
 		DrawRectangle(gameGridStartPosX + item.col * cellSize + cellMargin, gameGridStartPosY + item.row * cellSize + cellMargin, cellSize - cellMargin, cellSize - cellMargin, colors[id]);
-		// DrawRectangle(item.col * cellSize + 1, item.row * cellSize + 1, cellSize - 1, cellSize - 1, colors[id]);
 	}
 }
 

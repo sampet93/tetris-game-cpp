@@ -15,11 +15,13 @@ public:
 	void MoveBlockDown();
 
 private:
-	bool IsBlockOutside();
-	void RotateBlock();
 	std::vector<Block> blocks;
 	Block currentBlock;
 	Block nextBlock;
+	bool IsBlockOutside();
+	bool BlockFits();
+	void RotateBlock();
+	void SetLock();
 	int screenWidth;
 	int screenHeight;
 	int	gameGridWidth;
