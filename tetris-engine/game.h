@@ -10,11 +10,12 @@ public:
 	std::vector<Block> GetAllBlocks();
 	void Draw();
 	void HandleInput();
-
-private:
 	void MoveBlockLeft();
 	void MoveBlockRight();
 	void MoveBlockDown();
+
+private:
+	bool IsBlockOutside();
 	std::vector<Block> blocks;
 	Block currentBlock;
 	Block nextBlock;

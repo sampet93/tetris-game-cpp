@@ -1,6 +1,7 @@
 #include "game.h"
 #include "utils.h"
 #include <random>
+#include <vector>
 
 Game::Game(int screenWidth, int screenHeight) : screenWidth(screenWidth), screenHeight(screenHeight) {
 	gameGridWidth = 12;
@@ -57,14 +58,38 @@ void Game::HandleInput()
 
 void Game::MoveBlockLeft() {
 	currentBlock.Move(0, -1);
+
+	if (IsBlockOutside()) {
+		currentBlock.Move(0, 1);
+	}
 }
 
 void Game::MoveBlockRight()
 {
 	currentBlock.Move(0, 1);
+
+	if (IsBlockOutside()) {
+		currentBlock.Move(0, -1);
+	}
 }
 
 void Game::MoveBlockDown()
 {
 	currentBlock.Move(1, 0);
+
+	if (IsBlockOutside()) {
+		currentBlock.Move(-1, 0	);
+	}
+}
+
+bool Game::IsBlockOutside()
+{
+    std::vector<Position> tiles = currentBlock.GetCellPosition();
+	for (Position item : tiles)
+	{
+		if (grid.IsCellOutside(item.row, item.col)) {
+			return true;
+		}
+	}
+	return false;
 }

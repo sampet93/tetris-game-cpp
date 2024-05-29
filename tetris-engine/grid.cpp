@@ -56,6 +56,15 @@ void Grid::Draw() {
 	DrawBorder();
 }
 
+bool Grid::IsCellOutside(int row, int col)
+{
+	if (row >= 0 && row < rows && col >= 0 && col < cols) {
+		return false;
+	}
+
+	return true;
+}
+
 void Grid::DrawBorder() {
 	Rectangle gameAreaRect;
 	gameAreaRect.x = startPosX - borderThickness;
