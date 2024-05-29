@@ -12,13 +12,14 @@ Grid::Grid() {
 	startPosY = 0;
 	cellMargin = 2;
 	borderThickness = 5;
+	cellMargin = 1;
 
 	Initialize();
 	colors = GetCellColors();
 }
 
-Grid::Grid(int gridWidth, int gridHeight, int cellSize, int startPosX, int startPosY)
-	: cols(gridWidth), rows(gridHeight), cellSize(cellSize), startPosX(startPosX), startPosY(startPosY) {
+Grid::Grid(int gridWidth, int gridHeight, int cellSize, int cellMargin, int startPosX, int startPosY)
+	: cols(gridWidth), rows(gridHeight), cellSize(cellSize),  cellMargin(cellMargin), startPosX(startPosX), startPosY(startPosY) {
 	cellMargin = 2;
 	borderThickness = 5;
 

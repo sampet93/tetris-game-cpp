@@ -10,8 +10,6 @@ const char* titleText = "Tetris";
 const int titleFontSize = 48;
 const Color titleFontColor = LIGHTGRAY;
 
-const int gameAreaBorderLineThickness = 5;
-
 const int screenWidth = 600;
 const int screenHeight = 800;
 

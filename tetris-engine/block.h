@@ -11,13 +11,18 @@ public:
 	void Move(int rows, int cols);
 	void Rotate();
 	void UndoRotation();
+	void Initialize(int cellSize, int cellMargin, int gameGridStartPosX, int gameGridStartPosY, int gameAreaBorderLineThickness);
 	std::vector<Position> GetCellPosition();
 	int id;
 	std::map<int, std::vector<Position>> cells;
 private:
 	int cellSize;
+	int cellMargin;
+	int gameGridStartPosX;
+	int gameGridStartPosY;
+	int gameAreaBorderLineThickness;
 	int rotationState;
-	std::vector<Color> colors;
 	int rowOffset;
 	int colOffset;
+	std::vector<Color> colors;
 };

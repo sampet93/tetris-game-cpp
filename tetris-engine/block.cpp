@@ -6,13 +6,18 @@ Block::Block() {
 	colors = GetCellColors();
 	rowOffset = 0;
 	colOffset = 0;
+	gameGridStartPosX = 0;
+	gameGridStartPosY = 0;
+	gameAreaBorderLineThickness = 5;
+	cellMargin = 0;
 }
 
 void Block::Draw() {
 	std::vector<Position> tiles = GetCellPosition();
 
 	for (Position item : tiles) {
-		DrawRectangle(item.col * cellSize + 1, item.row * cellSize + 1, cellSize - 1, cellSize - 1, colors[id]);
+		DrawRectangle(gameGridStartPosX + item.col * cellSize + cellMargin, gameGridStartPosY + item.row * cellSize + cellMargin, cellSize - cellMargin, cellSize - cellMargin, colors[id]);
+		// DrawRectangle(item.col * cellSize + 1, item.row * cellSize + 1, cellSize - 1, cellSize - 1, colors[id]);
 	}
 }
 
@@ -38,6 +43,15 @@ void Block::UndoRotation()
 	if (rotationState == -1) {
 		rotationState = cells.size() - 1;
 	}
+}
+
+void Block::Initialize(int cellSize, int cellMargin, int gameGridStartPosX, int gameGridStartPosY, int gameAreaBorderLineThickness)
+{
+	this->cellSize = cellSize;
+	this->cellMargin = cellMargin;
+	this->gameGridStartPosX = gameGridStartPosX;
+	this->gameGridStartPosY = gameGridStartPosY;
+	this->gameAreaBorderLineThickness = gameAreaBorderLineThickness;
 }
 
 std::vector<Position> Block::GetCellPosition() {

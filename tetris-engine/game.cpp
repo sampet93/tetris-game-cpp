@@ -7,10 +7,11 @@ Game::Game(int screenWidth, int screenHeight) : screenWidth(screenWidth), screen
 	gameGridWidth = 12;
 	gameGridHeight = 18;
 	cellSize = 30;
+	cellMargin = 3;
 	gameAreaBorderLineThickness = 5;
 	gameGridStartPosX = calculateCenterPos(gameGridWidth * cellSize, screenWidth);
 	gameGridStartPosY = calculateCenterPos(gameGridHeight * cellSize, screenHeight);
-	grid = Grid(gameGridWidth, gameGridHeight, cellSize, gameGridStartPosX, gameGridStartPosY);
+	grid = Grid(gameGridWidth, gameGridHeight, cellSize, cellMargin, gameGridStartPosX, gameGridStartPosY);
 	blocks = GetAllBlocks();
 	currentBlock = GetRandomBlock();
 	nextBlock = GetRandomBlock();
@@ -23,6 +24,9 @@ Block Game::GetRandomBlock() {
 
 	int randomIndex = rand() % blocks.size();
 	Block randomBlock = blocks[randomIndex];
+
+	randomBlock.Initialize(cellSize, cellMargin, gameGridStartPosX, gameGridStartPosY, gameAreaBorderLineThickness);
+
 	blocks.erase(blocks.begin() + randomIndex);
 
 	return randomBlock;

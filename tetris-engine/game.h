@@ -27,5 +27,6 @@ private:
 	int	gameGridStartPosX;
 	int gameGridStartPosY;
 	int cellSize;
+	int cellMargin;
 	int gameAreaBorderLineThickness;
 };
