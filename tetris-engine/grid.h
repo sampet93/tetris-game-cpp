@@ -19,6 +19,5 @@ private:
 	int cellMargin;
 	int borderThickness;
 	void DrawBorder();
-	std::vector<Color> GetCellColors();
 	std::vector<Color> colors;
 };

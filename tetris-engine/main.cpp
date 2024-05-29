@@ -3,6 +3,7 @@
 #include "raylib.h"
 #include "utils.h"
 #include "grid.h"
+#include "blocks.cpp"
 
 using namespace std;
 
@@ -39,8 +40,14 @@ int main() {
     InitWindow(screenWidth, screenHeight, "Tetris");
     SetTargetFPS(60);
 
-    Grid grid = Grid(gameGridWidth, gameGridHeight, gridSize, calculateCenterPos(gameGridWidth * gridSize, screenWidth), calculateCenterPos(gameGridHeight * gridSize, screenHeight));
+    int gameGridStartPosX = calculateCenterPos(gameGridWidth * gridSize, screenWidth);
+    int gameGridStartPosY = calculateCenterPos(gameGridHeight * gridSize, screenHeight);
+
+    Grid grid = Grid(gameGridWidth, gameGridHeight, gridSize, gameGridStartPosX, gameGridStartPosY);
     grid.Print();
+
+    LBlock lBlock = LBlock();
+    lBlock.Move(0, 0);
 
     while (!WindowShouldClose()) {
         BeginDrawing();
@@ -48,6 +55,7 @@ int main() {
         ClearBackground(bgColor);
 
         grid.Draw();
+        lBlock.Draw();
 
         DrawTitleText();
 

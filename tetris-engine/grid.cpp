@@ -1,5 +1,6 @@
 #include "grid.h"
 #include "raylib.h"
+#include "colors.h"
 #include <iostream>
 #include <vector>
 
@@ -47,6 +48,7 @@ void Grid::Draw() {
 	for (int row = 0; row < rows; row++) {
 		for (int col = 0; col < cols; col++) {
 			int cellValue = grid[row][col];
+
 			DrawRectangle(startPosX + col * cellSize + cellMargin, startPosY + row * cellSize + cellMargin, cellSize - cellMargin, cellSize - cellMargin, colors[cellValue]);
 		}
 	}
@@ -62,10 +64,4 @@ void Grid::DrawBorder() {
 	gameAreaRect.height = rows * cellSize + borderThickness + borderThickness + cellMargin;
 
 	DrawRectangleLinesEx(gameAreaRect, borderThickness, LIGHTGRAY);
-}
-
-std::vector<Color> Grid::GetCellColors() {
-	Color emptyCellColor = Color{ 19, 153, 130, 255 }; // Light green
-
-	return { emptyCellColor };
 }
