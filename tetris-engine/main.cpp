@@ -37,12 +37,15 @@ int main() {
 
 
     while (!WindowShouldClose()) {
+
+        game.HandleInput();
+
         BeginDrawing();
-
         ClearBackground(bgColor);
-        game.Draw();
-        DrawTitleText();
 
+        game.Draw();
+
+        DrawTitleText();
         EndDrawing();
     }
     
