@@ -2,8 +2,7 @@
 #include "stdio.h"
 #include "raylib.h"
 #include "utils.h"
-#include "grid.h"
-#include "blocks.cpp"
+#include "game.h"
 
 using namespace std;
 
@@ -11,13 +10,10 @@ const char* titleText = "Tetris";
 const int titleFontSize = 48;
 const Color titleFontColor = LIGHTGRAY;
 
+const int gameAreaBorderLineThickness = 5;
+
 const int screenWidth = 600;
 const int screenHeight = 800;
-
-const int gameGridWidth	= 12;
-const int gameGridHeight = 18;
-const int gridSize = 30;
-const int gameAreaBorderLineThickness = 5;
 
 Color bgColor = Color{ 20, 160, 133, 255 };
 Color gameAreaBorderColor = LIGHTGRAY;
@@ -33,30 +29,18 @@ void DrawTitleText() {
 }
 
 int main() {
-
-    // Game score
-    unsigned int score = 0;
 	
     InitWindow(screenWidth, screenHeight, "Tetris");
     SetTargetFPS(60);
 
-    int gameGridStartPosX = calculateCenterPos(gameGridWidth * gridSize, screenWidth);
-    int gameGridStartPosY = calculateCenterPos(gameGridHeight * gridSize, screenHeight);
+    Game game = Game(screenWidth, screenHeight);
 
-    Grid grid = Grid(gameGridWidth, gameGridHeight, gridSize, gameGridStartPosX, gameGridStartPosY);
-    grid.Print();
-
-    LBlock lBlock = LBlock();
-    lBlock.Move(0, 0);
 
     while (!WindowShouldClose()) {
         BeginDrawing();
 
         ClearBackground(bgColor);
-
-        grid.Draw();
-        lBlock.Draw();
-
+        game.Draw();
         DrawTitleText();
 
         EndDrawing();
