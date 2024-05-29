@@ -22,6 +22,24 @@ void Block::Move(int rows, int cols) {
     colOffset += cols;
 }
 
+void Block::Rotate()
+{
+	rotationState++;
+
+	if (rotationState == (int) cells.size()) {
+		rotationState = 0;
+	}
+}
+
+void Block::UndoRotation()
+{
+	rotationState--;
+
+	if (rotationState == -1) {
+		rotationState = cells.size() - 1;
+	}
+}
+
 std::vector<Position> Block::GetCellPosition() {
 	std::vector<Position> tiles = cells[rotationState];
 	std::vector<Position> movedTiles;
