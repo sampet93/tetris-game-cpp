@@ -6,7 +6,7 @@ class Grid {
 public:
 	Grid();
 	Grid(int gridWidth, int gridHeight, int cellSize, int cellMargin, int startPosX, int startPosY);
-	int grid[20][10];
+	std::vector<std::vector<int>> grid;
 	void Initialize();
 	void Print();
 	void Draw();

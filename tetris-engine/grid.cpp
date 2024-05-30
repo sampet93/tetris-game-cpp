@@ -13,6 +13,7 @@ Grid::Grid() {
 	cellMargin = 2;
 	borderThickness = 5;
 	cellMargin = 1;
+	grid.resize(rows, std::vector<int>(cols, 0));
 
 	Initialize();
 	colors = GetCellColors();
@@ -22,6 +23,7 @@ Grid::Grid(int gridWidth, int gridHeight, int cellSize, int cellMargin, int star
 	: cols(gridWidth), rows(gridHeight), cellSize(cellSize),  cellMargin(cellMargin), startPosX(startPosX), startPosY(startPosY) {
 	cellMargin = 2;
 	borderThickness = 5;
+	grid.resize(rows, std::vector<int>(cols, 0));
 
 	Initialize();
 	colors = GetCellColors();

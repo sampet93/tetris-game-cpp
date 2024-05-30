@@ -129,6 +129,7 @@ void Game::SetLock() {
 	{
 		grid.grid[item.row][item.col] = currentBlock.id;
 	}
+
 	currentBlock = nextBlock;
 	nextBlock = GetRandomBlock();
 }
