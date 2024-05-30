@@ -3,6 +3,7 @@
 #include "raylib.h"
 #include "utils.h"
 #include "game.h"
+#include <string>
 
 using namespace std;
 
@@ -20,6 +21,7 @@ bool EventTriggered(double interval) {
 
 const char* titleText = "Tetris";
 const int titleFontSize = 48;
+const int scoreFontSize = 22;
 const Color titleFontColor = LIGHTGRAY;
 
 const int screenWidth = 600;
@@ -29,6 +31,16 @@ Color bgColor = Color{ 20, 160, 133, 255 };
 Color gameAreaBorderColor = LIGHTGRAY;
 
 void DrawTitleText() {
+    int textWidth = MeasureText(titleText, titleFontSize);
+    int textHeight = textWidth;
+
+    int textPosX = calculateCenterPos(textWidth, screenWidth);
+    int textPosY = 25;
+
+    DrawText(titleText, textPosX, textPosY, titleFontSize, titleFontColor);
+}
+
+void DrawScoreText() {
     int textWidth = MeasureText(titleText, titleFontSize);
     int textHeight = textWidth;
 
@@ -60,6 +72,9 @@ int main() {
         game.Draw();
 
         DrawTitleText();
+
+        DrawText(("Score: " + std::to_string(game.GetScore())).c_str(), 115, 95, scoreFontSize, titleFontColor);
+
         EndDrawing();
     }
     

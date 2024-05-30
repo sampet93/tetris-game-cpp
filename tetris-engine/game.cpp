@@ -16,6 +16,7 @@ Game::Game(int screenWidth, int screenHeight) : screenWidth(screenWidth), screen
 	currentBlock = GetRandomBlock();
 	nextBlock = GetRandomBlock();
 	gameOver = false;
+	score = 0;
 }
 
 Block Game::GetRandomBlock() {
@@ -40,6 +41,11 @@ std::vector<Block> Game::GetAllBlocks() {
 void Game::Draw() {
 	grid.Draw();
 	currentBlock.Draw();
+}
+
+int Game::GetScore()
+{
+	return score;
 }
 
 void Game::HandleInput()
@@ -161,4 +167,5 @@ void Game::Reset() {
 	blocks = GetAllBlocks();
 	currentBlock = GetRandomBlock();
 	nextBlock = GetRandomBlock();
+	score = 0;
 }

@@ -9,6 +9,7 @@ public:
 	Block GetRandomBlock();
 	std::vector<Block> GetAllBlocks();
 	void Draw();
+	int GetScore();
 	void HandleInput();
 	void MoveBlockLeft();
 	void MoveBlockRight();
@@ -23,6 +24,7 @@ private:
 	void RotateBlock();
 	void SetLock();
 	void Reset();
+	int score;
 	int screenWidth;
 	int screenHeight;
 	int	gameGridWidth;
