@@ -76,6 +76,23 @@ bool Grid::IsCellEmpty(int row, int col)
 	return false;
 }
 
+int Grid::ClearFullRows()
+{
+	int completed = 0;
+
+	for (int row = rows - 1; row >= 0; row--)
+	{
+		if (IsRowFull(row)) {
+			ClearRow(row);
+			completed++;
+		}
+		else if (completed > 0) {
+			MoveRowDown(row, completed);
+		}
+	}
+	return 0;
+}
+
 void Grid::DrawBorder() {
 	Rectangle gameAreaRect;
 	gameAreaRect.x = startPosX - borderThickness;
@@ -84,4 +101,30 @@ void Grid::DrawBorder() {
 	gameAreaRect.height = rows * cellSize + borderThickness + borderThickness + cellMargin;
 
 	DrawRectangleLinesEx(gameAreaRect, borderThickness, LIGHTGRAY);
+}
+
+bool Grid::IsRowFull(int row)
+{
+	for (int col = 0; col < cols; col++) {
+		if (grid[row][col] == 0) {
+			return false;
+		}
+	}
+
+	return true;
+}
+
+void Grid::ClearRow(int row)
+{
+	for (int col = 0; col < cols; col++) {
+		grid[row][col] = 0;
+	}
+}
+
+void Grid::MoveRowDown(int row, int rows)
+{
+	for (int col = 0; col < cols; col++) {
+		grid[row + rows][col] = grid[row][col];
+		grid[row][col] = 0;
+	}
 }

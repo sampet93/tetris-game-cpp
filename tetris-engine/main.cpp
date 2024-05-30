@@ -50,7 +50,7 @@ int main() {
 
         game.HandleInput();
 
-        if (EventTriggered(0.4)) {
+        if (EventTriggered(0.02)) {
             game.MoveBlockDown();
         }
 

@@ -12,6 +12,7 @@ public:
 	void Draw();
 	bool IsCellOutside(int row, int col);
 	bool IsCellEmpty(int row, int col);
+	int ClearFullRows();
 private:
 	int rows;
 	int cols;
@@ -20,6 +21,9 @@ private:
 	int startPosY;
 	int cellMargin;
 	int borderThickness;
-	void DrawBorder();
 	std::vector<Color> colors;
+	void DrawBorder();
+	bool IsRowFull(int row);
+	void ClearRow(int row);
+	void MoveRowDown(int row, int rows);
 };

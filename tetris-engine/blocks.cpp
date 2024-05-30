@@ -10,7 +10,7 @@ public :
 		cells[2] = { Position(1,0), Position(1,1), Position(1,2), Position(2,0) };
 		cells[3] = { Position(0,0), Position(0,1), Position(1,1), Position(2,1) };
 
-        Move(0, 3);
+        Move(0, 4);
 	}
 };
 
@@ -25,7 +25,7 @@ public:
         cells[2] = { Position(1, 0), Position(1, 1), Position(1, 2), Position(2, 2) };
         cells[3] = { Position(0, 1), Position(1, 1), Position(2, 0), Position(2, 1) };
 
-        Move(0, 3);
+        Move(0, 4);
     }
 };
 
@@ -40,7 +40,7 @@ public:
         cells[2] = { Position(2, 0), Position(2, 1), Position(2, 2), Position(2, 3) };
         cells[3] = { Position(0, 1), Position(1, 1), Position(2, 1), Position(3, 1) };
 
-        Move(-1, 3);
+        Move(-1, 4);
     }
 };
 
@@ -52,7 +52,7 @@ public:
         id = 4;
         cells[0] = { Position(0, 0), Position(0, 1), Position(1, 0), Position(1, 1) };
 
-        Move(0, 4);
+        Move(0, 5);
     }
 };
 
@@ -66,6 +66,8 @@ public:
         cells[1] = { Position(0, 1), Position(1, 1), Position(1, 2), Position(2, 2) };
         cells[2] = { Position(1, 1), Position(1, 2), Position(2, 0), Position(2, 1) };
         cells[3] = { Position(0, 0), Position(1, 0), Position(1, 1), Position(2, 1) };
+
+        Move(0, 4);
     }
 };
 
@@ -80,7 +82,7 @@ public:
         cells[2] = { Position(1, 0), Position(1, 1), Position(1, 2), Position(2, 1) };
         cells[3] = { Position(0, 1), Position(1, 0), Position(1, 1), Position(2, 1) };
 
-        Move(0, 3);
+        Move(0, 4);
     }
 };
 
@@ -95,6 +97,6 @@ public:
         cells[2] = { Position(1, 0), Position(1, 1), Position(2, 1), Position(2, 2) };
         cells[3] = { Position(0, 1), Position(1, 0), Position(1, 1), Position(2, 0) };
 
-        Move(0, 3);
+        Move(0, 4);
     }
 };
